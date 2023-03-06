@@ -1,0 +1,13 @@
+# Do not track python development files
+.venv/
+__pycache__
+
+# Do not track sensitive data
+localdata.txt
+*url_to_extract.py
+
+# Do not track currently not needed
+tests/
+
+# Do not track scraped data
+data/
