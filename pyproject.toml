@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "webscraper"
+version = "0.1.0"
+description = ""
+authors = ["jisphording <mail@johannesisphording.de>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.28.2"
+bs4 = "^0.0.1"
+pillow = "^9.4.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
