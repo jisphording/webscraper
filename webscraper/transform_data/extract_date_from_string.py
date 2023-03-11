@@ -5,6 +5,9 @@ import re
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 #
 def extract_date( string ):
+    # SETTINGS
+    match_str = re.search( r'\d{1,2}\.\s\w+\s\d{4}', string )
+
     # METHODS
     def transform_date( string ):
         
@@ -20,17 +23,26 @@ def extract_date( string ):
 
         return date
 
-    # extract the date from the string
-    match_str = re.search( r'\d{1,2}\.\s\w+\s\d{4}', string )
-    try:
-        res = match_str.group().replace( '.', '' )
-    except AttributeError:
-        res = None
-    
-    # test if a date was actually found
-    if match_str is not None:
-        transformed_date = transform_date( res )
-    else:
-        transformed_date = ''
+    def regex_date( string ):
+        # extract the date from the string
+        try:
+            res = match_str.group().replace( '.', '' )
+        except AttributeError:
+            res = None
 
-    return transformed_date
+        return res
+    
+    def date_found( string, regex_result ):
+        # test if a date was actually found
+        if match_str is not None:
+            transformed_date = transform_date( regex_result )
+        else:
+            transformed_date = ''
+
+        return transformed_date
+            
+    # MAIN PROGRAM
+    regex_result = regex_date( string )
+    extracted_date = date_found( string, regex_result )
+
+    return extracted_date
