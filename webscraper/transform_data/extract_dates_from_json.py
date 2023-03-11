@@ -4,9 +4,14 @@ from .extract_date_from_string import extract_date
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 #
 def extract_dates_from_json( df_json ):
-    # extract the dates from the json data
-    table_data = df_json['Text'].to_list()
-    for i in range( len( table_data ) ):
-        table_data[ i ] = extract_date( table_data[ i ] )
+    # extract the dates from the json content
+    table_data = [ extract_date( x ) for x in df_json['Text'] ]
 
-    return table_data
+    # insert a new column at the beginning of the dataframe
+    df_json.insert( 0, 'Datum', '' )
+
+    # insert the extracted dates into the new column
+    for i in range( len( table_data ) ):
+        df_json.loc[i, 'Datum'] = table_data[ i ]
+
+    return df_json
