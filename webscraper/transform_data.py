@@ -34,4 +34,4 @@ print( df_combined )
 # [ print(x) for x in extracted_dates ]
 
 # save the combined dataframe as a csv file
-df_combined.to_csv( 'combined.csv', index=False )
+df_combined.to_csv( 'data/combined.csv', index=False )
