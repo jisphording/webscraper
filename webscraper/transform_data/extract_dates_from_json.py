@@ -1,4 +1,6 @@
 from .extract_date_from_string import extract_date
+from .remove_date_from_string import remove_date_from_string
+from .regex_date import regex_date
 
 # EXTRACT DATES FROM JSON
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
