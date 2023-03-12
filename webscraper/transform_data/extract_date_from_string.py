@@ -38,7 +38,9 @@ def extract_date( string ):
         return transformed_date
             
     # MAIN PROGRAM
-    regex_result = regex_date( string )
-    extracted_date = date_found( string, regex_result )
+    if string is not None:
+        # extract the date from the string
+        regex_result = regex_date( string )
+        extracted_date = date_found( string, regex_result )
 
     return extracted_date
