@@ -7,13 +7,16 @@ from .regex_date import regex_date
 #
 def extract_dates_from_json( df_json ):
     # extract the dates from the json content
-    table_data = [ extract_date( x ) for x in df_json['Text'] ]
-
+    #table_data = [ extract_date( x ) for x in df_json['Text'] ]
+    #table_text = [ remove_date_from_string( y, regex_result= ) for y in df_json['Text'] ]
+    
     # insert a new column at the beginning of the dataframe
     df_json.insert( 0, 'Datum', '' )
 
-    # insert the extracted dates into the new column
-    for i in range( len( table_data ) ):
-        df_json.loc[i, 'Datum'] = table_data[ i ]
+    for i in range( len( df_json['Text'] ) ):
+        data_cell = df_json.loc[ i, 'Text' ]
+        
+        df_json.loc[ i, 'Datum' ] = extract_date( data_cell )
+        df_json.loc[i, 'Text'] = remove_date_from_string( data_cell, regex_date( data_cell ) )
 
     return df_json
