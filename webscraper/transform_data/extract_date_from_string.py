@@ -1,6 +1,8 @@
 from datetime import datetime
 import re
 
+from .regex_date import regex_date
+
 # EXTRACT DATE FROM STRING
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 #
