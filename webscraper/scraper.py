@@ -19,7 +19,7 @@ import scraper
 url = url_to_extract.url()
 
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
-# DEFINING FUNCTIONS
+# MAIN PROGRAM
 # ----- ----- ----- ----- ----- ----- ----- ----- ----- -----
 
 # Get HTML
