@@ -31,7 +31,6 @@ transform_data.convert_date_to_webflow( extracted_dates )
 df_combined = df_webflow.append( extracted_dates, ignore_index=True )
 
 print( df_combined )
-# [ print(x) for x in extracted_dates ]
 
 # save the combined dataframe as a csv file
 df_combined.to_csv( 'data/combined.csv', index=False )
